@@ -1,0 +1,287 @@
+/*
+Theme Name: ShopIsle
+
+Adding support for language written in a Right To Left (RTL) direction is easy -
+it's just a matter of overwriting all the horizontal positioning attributes
+of your CSS stylesheet in a separate stylesheet file named rtl.css.
+
+http://codex.wordpress.org/Right_to_Left_Language_Support
+
+*/
+
+/*
+body {
+	direction: rtl;
+	unicode-bidi: embed;
+}
+*/
+@font-face {
+    font-family: yekan;
+    src: url(assets/fonts/web_Yekan.woff);
+
+    font-weight: 400;
+    font-style: normal;
+}
+
+body{
+    background: #eeeff1;
+    direction: rtl;
+    font-family: yekan;
+}
+html *{
+    font-family: yekan;
+    letter-spacing: 0;
+}
+.btn{
+    letter-spacing: 0;
+    font-family: yekan;
+}
+.form-control, #comments input, #comments textarea{
+    letter-spacing: 0;
+}
+
+.admin-bar .navbar-custom{
+    top:0;
+}
+
+ul.products li.product h2,
+ul.products li.product h3,
+.wccm-td div {
+    margin: 15px 0 5px;
+    color: #111;
+    font-family: yekan;
+    font-size: 14px;
+    font-weight: 400;
+    letter-spacing: 0px;
+    text-transform: uppercase;
+}
+
+
+.single-product .product_title {
+    margin: 0 0 20px;
+    color: #111;
+    font-family: yekan;
+    letter-spacing: 0px;
+    text-transform: uppercase;
+}
+
+
+.add_to_cart_button {
+    padding: 8px 37px;
+    border-radius: 2px;
+    color: #fff;
+    background: rgba(17, 17, 17, 1);
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    font-family: yekan;
+    font-size: 12px;
+    letter-spacing: 0px;
+    text-transform: uppercase;
+}
+
+.single_add_to_cart_button {
+    padding: 10px 45px;
+    border: black;
+    border-radius: 2px;
+    color: #fff;
+    background: rgba(17, 17, 17, 1);
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    font-family: yekan;
+    font-size: 13px;
+    letter-spacing: 0px;
+    text-transform: uppercase;
+}
+
+.product .product-button-wrap .product_type_simple,
+ul.products li.product .product-button-wrap .button.product_type_simple,
+.shop-item .product-button-wrap .product_type_simple {
+    position: relative;
+    bottom: 0;
+    padding: 10px 30px;
+    border-radius: 2px;
+    opacity: 0;
+    opacity: 1;
+    color: #aaa;
+    color: #fff;
+    background: rgba(17, 17, 17, 1);
+    font-family: "Roboto Condensed",sans-serif;
+    font-size: 12px;
+    line-height: 25px;
+    letter-spacing: 0px;
+    text-transform: uppercase;
+    -webkit-transform: translateY(0%);
+    -ms-transform: translateY(0%);
+    transform: translateY(0%);
+}
+
+.product_list_widget .amount {
+    font-size: 12px;
+    letter-spacing: 0;
+}
+
+/*
+Added by Shahab Rahnama
+*/
+
+.checkbox {
+    position: relative;
+}
+.woocommerce{
+
+
+}
+.woocommerce  ul.products li{
+    background: white;
+    padding: 3px;
+    border:#eee solid  1px;
+}
+.module-title{
+    background: lightskyblue;
+
+}
+.page-module-content {
+    background: white;
+    padding: 5px;
+}
+.woocommerce a{
+    color: #e35950;
+}
+.woocommerce .form-inline a{
+    color: white;
+}
+.bottom-page-wrap .navbar-custom .nav li > a{
+    color: white;
+}
+.navbar-custom .container{
+    padding: 3px;
+}
+
+.navbar-takel{
+    color: #0b0b0b;
+    border-radius: 0;
+    background: lightskyblue;
+}
+.navbar{
+    background: white;
+    margin-bottom: 0;
+    box-shadow: 0 1px 2px rgba(0,0,0,.12);
+    -moz-box-shadow: 0 1px 2px rgba(0,0,0,.12);
+    -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.12);
+}
+#navbar{
+    color: #0b0b0b;
+    border-radius: 0;
+    padding: 5px;
+    font-family: yekan;
+    margin: 0 auto;
+}
+#navbar1{
+     color: #0b0b0b;
+     border-radius: 0;
+     margin: 0 auto;
+     padding: 5px;
+     background: #f7f8fa;
+ }
+
+.navbar-custom .nav .open  > a:hover{
+    color: black;
+}
+.navbar-custom .nav li > a{
+    color: black;
+    font-family: yekan;
+    letter-spacing: 0;
+    font-size: 13px;
+    direction: rtl;
+   text-align: right;
+}
+
+.navbar-custom .sub-menu{
+    background: whitesmoke;
+    direction: rtl;
+}
+.page .navbar-custom{
+    background: #fff !important;
+    letter-spacing: 0;
+    top: 0;
+}
+.navbar-custom .sub-menu :hover{
+
+}
+.navbar-custom .sub-menu > li > a:hover{
+    color: black;
+}
+.navbar-custom .nav > li > a:focus, .navbar-custom .nav > li > a:hover, .navbar-custom .nav .open > a, .navbar-custom .nav .open > a:focus, .navbar-custom .nav .open > a:hover, .navbar-custom .sub-menu > li > a:focus, .navbar-custom .sub-menu > li > a:hover{
+    color: red;
+}
+.module-title{
+    margin: 0;
+    letter-spacing: 0;
+    font-family: yekan;
+}
+.module-small,.module-title{
+    margin-top:40px;
+}
+.module, .module-small{
+    font-family: yekan;
+    letter-spacing: 0;
+}
+.module-footer {
+    position: relative;
+    margin-top:0px;
+    background-color: white;
+
+    background-repeat: no-repeat;
+    background-position: 50% 50%;
+    background-size: cover;
+}
+
+#payment .terms input{
+    position: relative;
+}
+tr.cart_item td.product-name a{
+    font-family: yekan;
+    letter-spacing: 0;
+}
+.woocommerce-tabs ul.tabs li a{
+    letter-spacing: 0;
+    font-family: yekan;
+}
+.woocommerce-tabs .panel h2{
+    letter-spacing: 0;
+    font-family: yekan;
+}
+
+.comment-reply-title{
+    letter-spacing: 0;
+    font-family: yekan;
+}
+
+.related.products h2, .upsells.products h2{
+    letter-spacing: 0;
+    font-family: yekan;
+}
+
+#comments input[type="submit"], button[type="submit"]{
+    letter-spacing: 0;
+    font-family: yekan;
+}
+.navbar-custom .navbar-toggle .icon-bar {
+    background: #272323;
+}
+.widget .widget-title {
+    /* margin: 0 0 15px; */
+    padding: 10px;
+    /* border-bottom: 1px dotted #c2c2c2; */
+    font-family: yekan;
+    letter-spacing: 0;
+    font-size: 14px;
+    background: white;
+    text-transform: uppercase;}
+.tm_products_carousel_widget {
+    font-size: 1em !important;
+    margin-top:10px;
+    border-left: 1px solid #bbb;
+    border-right: 1px solid #bbb;
+    border-bottom: 1px solid #bbb;
+}
