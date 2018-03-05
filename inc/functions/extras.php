@@ -31,7 +31,7 @@ function shop_isle_body_classes( $classes ) {
 	}
 
 	if ( ! function_exists( 'woocommerce_breadcrumb' ) ) {
-		$classes[] = 'no-wc-breadcrumb';
+		$classes[]  = 'no-wc-breadcrumb';
 	}
 
 	/**
@@ -39,7 +39,7 @@ function shop_isle_body_classes( $classes ) {
 	 * Take the blue pill, close this file and forget you saw the following code.
 	 * Or take the red pill, filter shop_isle_make_me_cute and see how deep the rabbit hole goes...
 	 */
-	$cute = apply_filters( 'shop_isle_make_me_cute', false );
+	$cute   = apply_filters( 'shop_isle_make_me_cute', false );
 
 	if ( true === $cute ) {
 		$classes[] = 'shop-isle-cute';
@@ -57,6 +57,28 @@ if ( ! function_exists( 'is_woocommerce_activated' ) ) {
 		return class_exists( 'woocommerce' ) ? true : false;
 	}
 }
+
+/**
+ * Schema type
+ */
+function shop_isle_html_tag_schema() {
+	$schema     = 'http://schema.org/';
+	$type       = 'WebPage';
+
+	// Is single post
+	if ( is_singular( 'post' ) ) {
+		$type   = 'Article';
+	} // End if().
+	elseif ( is_author() ) {
+		$type   = 'ProfilePage';
+	} // Is search results page
+	elseif ( is_search() ) {
+		$type   = 'SearchResultsPage';
+	}
+
+	echo 'itemscope="itemscope" itemtype="' . esc_attr( $schema ) . esc_attr( $type ) . '"';
+}
+
 
 /**
  * Add meta box for page header description - save meta box
@@ -187,15 +209,15 @@ function shop_isle_features_register_strings() {
 		array(
 			array(
 				'image_url' => get_template_directory_uri() . '/assets/images/banner1.jpg',
-				'link'      => '#',
+				'link' => '#',
 			),
 			array(
 				'image_url' => get_template_directory_uri() . '/assets/images/banner2.jpg',
-				'link'      => '#',
+				'link' => '#',
 			),
 			array(
 				'image_url' => get_template_directory_uri() . '/assets/images/banner3.jpg',
-				'link'      => '#',
+				'link' => '#',
 			),
 		)
 	);
@@ -232,27 +254,27 @@ function shop_isle_features_register_strings() {
 	$default = json_encode(
 		array(
 			array(
-				'image_url'   => get_template_directory_uri() . '/assets/images/team1.jpg',
-				'text'        => 'Eva Bean',
-				'subtext'     => 'Developer',
+				'image_url' => get_template_directory_uri() . '/assets/images/team1.jpg',
+				'text' => 'Eva Bean',
+				'subtext' => 'Developer',
 				'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit lacus, a iaculis diam.',
 			),
 			array(
-				'image_url'   => get_template_directory_uri() . '/assets/images/team2.jpg',
-				'text'        => 'Maria Woods',
-				'subtext'     => 'Designer',
+				'image_url' => get_template_directory_uri() . '/assets/images/team2.jpg',
+				'text' => 'Maria Woods',
+				'subtext' => 'Designer',
 				'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit lacus, a iaculis diam.',
 			),
 			array(
-				'image_url'   => get_template_directory_uri() . '/assets/images/team3.jpg',
-				'text'        => 'Booby Stone',
-				'subtext'     => 'Director',
+				'image_url' => get_template_directory_uri() . '/assets/images/team3.jpg',
+				'text' => 'Booby Stone',
+				'subtext' => 'Director',
 				'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit lacus, a iaculis diam.',
 			),
 			array(
-				'image_url'   => get_template_directory_uri() . '/assets/images/team4.jpg',
-				'text'        => 'Anna Neaga',
-				'subtext'     => 'Art Director',
+				'image_url' => get_template_directory_uri() . '/assets/images/team4.jpg',
+				'text' => 'Anna Neaga',
+				'subtext' => 'Art Director',
 				'description' => 'Lorem ipsum dolor sit amet, consectetur adipiscing elit lacus, a iaculis diam.',
 			),
 		)
@@ -263,40 +285,26 @@ function shop_isle_features_register_strings() {
 		array(
 			array(
 				'icon_value' => 'icon_lightbulb',
-				'text'       => __( 'Ideas and concepts', 'shop-isle' ),
-				'subtext'    => __( 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.', 'shop-isle' ),
+				'text' => __( 'Ideas and concepts','shop-isle' ),
+				'subtext' => __( 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.','shop-isle' ),
 			),
 			array(
 				'icon_value' => 'icon_tools',
-				'text'       => __( 'Designs & interfaces', 'shop-isle' ),
-				'subtext'    => __( 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.', 'shop-isle' ),
+				'text' => __( 'Designs & interfaces','shop-isle' ),
+				'subtext' => __( 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.','shop-isle' ),
 			),
 			array(
 				'icon_value' => 'icon_cogs',
-				'text'       => __( 'Highly customizable', 'shop-isle' ),
-				'subtext'    => __( 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.', 'shop-isle' ),
+				'text' => __( 'Highly customizable','shop-isle' ),
+				'subtext' => __( 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.','shop-isle' ),
 			),
 			array(
 				'icon_value' => 'icon_like',
-				'text'       => __( 'Easy to use', 'shop-isle' ),
-				'subtext'    => __( 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.', 'shop-isle' ),
+				'text' => __( 'Easy to use','shop-isle' ),
+				'subtext' => __( 'Lorem ipsum dolor sit amet, consectetur adipiscing elit.','shop-isle' ),
 			),
 		)
 	);
 	shop_isle_pll_string_register_helper( 'shop_isle_advantages', $default, 'Advantages section' );
 }
 add_action( 'after_setup_theme', 'shop_isle_features_register_strings', 11 );
-
-/**
- * Migrate old logo option from theme to core logo option
- */
-function shop_isle_migrate_old_logo() {
-	if ( get_theme_mod( 'shop_isle_logo' ) ) {
-		$logo = attachment_url_to_postid( get_theme_mod( 'shop_isle_logo' ) );
-		if ( is_int( $logo ) ) {
-			set_theme_mod( 'custom_logo', $logo );
-		}
-		remove_theme_mod( 'shop_isle_logo' );
-	}
-}
-add_action( 'after_setup_theme', 'shop_isle_migrate_old_logo' );

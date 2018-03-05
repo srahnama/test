@@ -14,7 +14,7 @@ if ( ! function_exists( 'shop_isle_page_content' ) ) {
 	 */
 	function shop_isle_page_content() {
 		?>
-		<div class="entry-content">
+		<div class="entry-content" itemprop="mainContentOfPage">
 			<?php the_content(); ?>
 			<?php
 				wp_link_pages(

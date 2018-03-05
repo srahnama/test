@@ -57,5 +57,6 @@ get_header(); ?>
 			</div>
 		</section>
 		<!-- Post single end -->
+		
 
 <?php get_footer(); ?>

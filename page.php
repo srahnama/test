@@ -16,24 +16,7 @@ get_header(); ?>
 <!-- Wrapper start -->
 <div class="main">
 
-	<?php
-	if ( ( function_exists( 'is_cart' ) && is_cart() ) || ( function_exists( 'is_checkout' ) && is_checkout() ) || ( function_exists( 'is_wc_endpoint_url' ) && is_wc_endpoint_url( 'lost-password' ) ) || ( function_exists( 'is_account_page' ) && is_account_page() ) ) :
-		echo '<section class="module module-cart-top">';
-	else :
 
-		$thumb_tmp = get_the_post_thumbnail_url();
-
-		$shop_isle_header_image = get_header_image();
-		if ( ! empty( $thumb_tmp ) ) {
-			echo '<section class="page-header-module module bg-dark" data-background="' . esc_url( $thumb_tmp ) . '">';
-		} elseif ( ! empty( $shop_isle_header_image ) ) {
-			echo '<section class="page-header-module module bg-dark" data-background="' . esc_url( $shop_isle_header_image ) . '">';
-		} else {
-			echo '<section class="page-header-module module bg-dark">';
-		}
-
-	endif;
-	?>
 
 	<div class="container">
 		<div class="row">

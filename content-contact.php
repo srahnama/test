@@ -10,10 +10,12 @@
 			<div class="container">
 
 				<div class="row">
+				
 					<?php
+
 						$shop_isle_contact_page_form_shortcode = get_theme_mod( 'shop_isle_contact_page_form_shortcode' );
 
-						$is_content  = $post->post_content !== '' ? true : false;
+						$is_content = $post->post_content !== '' ? true : false;
 						$is_shotcode = ! empty( $shop_isle_contact_page_form_shortcode ) ? true : false;
 
 					if ( $is_shotcode ) {

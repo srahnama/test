@@ -50,7 +50,24 @@ if ( ! function_exists( 'shop_isle_shop_page_wrapper' ) ) {
 		?>
 		<section class="module-small module-small-shop">
 				<div class="container">
+                     <?php if ( is_active_sidebar( 'sidebar-footer-area-1' ) ) : ?>
 
+							<?php dynamic_sidebar('sidebar-footer-area-1'); ?>
+
+					<?php endif; ?>
+					<br/>
+				  <?php if ( is_active_sidebar( 'sidebar-footer-area-3' ) ) : ?>
+
+							<?php dynamic_sidebar('sidebar-footer-area-3'); ?>
+
+					<?php endif; ?>
+					<br/>
+					<?php if ( is_active_sidebar( 'sidebar-footer-area-2' ) ) : ?>
+
+							<?php dynamic_sidebar('sidebar-footer-area-2'); ?>
+
+					<?php endif; ?>
+					<br/>
 				<?php
 				if ( is_shop() || is_product_tag() || is_product_category() ) :
 
@@ -107,7 +124,7 @@ if ( ! function_exists( 'shop_isle_shop_page_wrapper_end' ) ) {
 	function shop_isle_shop_page_wrapper_end() {
 		?>
 
-			<?php if ( ( is_shop() || is_product_category() || is_product_tag() ) && is_active_sidebar( 'shop-isle-sidebar-shop-archive' ) ) : ?>
+			<?php if ( (is_shop() || is_product_category() || is_product_tag() ) && is_active_sidebar( 'shop-isle-sidebar-shop-archive' ) ) : ?>
 
 				</div>
 
@@ -183,7 +200,8 @@ if ( ! function_exists( 'shop_isle_cart_link_fragment' ) ) {
  */
 function shop_isle_woocommerce_scripts() {
 
-	wp_enqueue_style( 'shop-isle-woocommerce-style1', get_template_directory_uri() . '/inc/woocommerce/css/woocommerce.css', array(), '11' );
+	wp_enqueue_style( 'shop-isle-woocommerce-style1', get_template_directory_uri() . '/inc/woocommerce/css/woocommerce.css', array(), 'v3' );
+	wp_enqueue_style( 'awesome', 'https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css', array(), 'v3' );
 }
 
 /**
@@ -244,41 +262,12 @@ function shop_isle_header_shop_page( $page_title ) {
 
 	$shop_isle_title = '';
 
-	$shop_id = get_option( 'woocommerce_shop_page_id' );
-
-	if ( class_exists( 'WooCommerce' ) && is_woocommerce() ) {
-
-		if ( is_product_category() ) {
-				global $wp_query;
-				$category = $wp_query->get_queried_object();
-			if ( ! empty( $category->term_id ) ) {
-				$thumbnail_id = get_woocommerce_term_meta( $category->term_id, 'thumbnail_id', true );
-			}
-			if ( ! empty( $thumbnail_id ) ) {
-				// Get category featured image
-				$thumb_tmp = wp_get_attachment_url( $thumbnail_id );
-			} else {
-				if ( ! empty( $shop_id ) ) {
-					// Get shop page featured image
-					$thumb_tmp = get_the_post_thumbnail_url( $shop_id );
-				}
-			}
-		} else {
-			// Shop page
-			if ( ! empty( $shop_id ) ) {
-				$thumb_tmp = get_the_post_thumbnail_url( $shop_id );
-			}
-		}
-	}
-
 	$shop_isle_header_image = get_header_image();
-	if ( ! empty( $thumb_tmp ) ) {
-		$shop_isle_title = '<section class="' . ( is_woocommerce() ? 'woocommerce-page-title ' : '' ) . 'page-header-module module bg-dark" data-background="' . $thumb_tmp . '">';
-	} elseif ( ! empty( $shop_isle_header_image ) ) {
+	if ( ! empty( $shop_isle_header_image ) ) :
 		$shop_isle_title = '<section class="' . ( is_woocommerce() ? 'woocommerce-page-title ' : '' ) . 'page-header-module module bg-dark" data-background="' . $shop_isle_header_image . '">';
-	} else {
+	else :
 		$shop_isle_title = '<section class="page-header-module module bg-dark">';
-	}
+	endif;
 
 		$shop_isle_title .= '<div class="container">';
 
@@ -309,9 +298,9 @@ function shop_isle_header_shop_page( $page_title ) {
 			$shop_isle_title .= '</div><!-- .row -->';
 
 		$shop_isle_title .= '</div>';
-	$shop_isle_title     .= '</section>';
+	$shop_isle_title .= '</section>';
 
-	return $shop_isle_title;
+	return '';
 }
 
 /**
@@ -363,8 +352,8 @@ function shop_isle_products_slider_on_single_page() {
 
 			echo '<div class="container">';
 
-				$shop_isle_products_slider_title    = get_theme_mod( 'shop_isle_products_slider_title', __( 'Exclusive products', 'shop-isle' ) );
-				$shop_isle_products_slider_subtitle = get_theme_mod( 'shop_isle_products_slider_subtitle', __( 'Special category of products', 'shop-isle' ) );
+				$shop_isle_products_slider_title = get_theme_mod( 'shop_isle_products_slider_title',__( 'Exclusive products', 'shop-isle' ) );
+				$shop_isle_products_slider_subtitle = get_theme_mod( 'shop_isle_products_slider_subtitle',__( 'Special category of products', 'shop-isle' ) );
 
 		if ( ! empty( $shop_isle_products_slider_title ) || ! empty( $shop_isle_products_slider_subtitle ) ) :
 			echo '<div class="row">';
@@ -381,7 +370,7 @@ function shop_isle_products_slider_on_single_page() {
 
 				$shop_isle_products_slider_category = get_theme_mod( 'shop_isle_products_slider_category' );
 
-		$tax_query_item  = array();
+		$tax_query_item = array();
 		$meta_query_item = array();
 		if ( taxonomy_exists( 'product_visibility' ) ) {
 			$tax_query_item = array(
@@ -401,39 +390,39 @@ function shop_isle_products_slider_on_single_page() {
 		}
 
 		$shop_isle_products_slider_args = array(
-			'post_type'      => 'product',
+			'post_type' => 'product',
 			'posts_per_page' => 10,
 		);
 
-		if ( ! empty( $shop_isle_products_slider_category ) && ( $shop_isle_products_slider_category != '-' ) ) {
+		if ( ! empty( $shop_isle_products_slider_category ) && ($shop_isle_products_slider_category != '-') ) {
 			$shop_isle_products_slider_args['tax_query'] = array(
 				array(
-					'taxonomy' => 'product_cat',
-					'field'    => 'term_id',
-					'terms'    => $shop_isle_products_slider_category,
+					'taxonomy'   => 'product_cat',
+					'field'      => 'term_id',
+					'terms'      => $shop_isle_products_slider_category,
 				),
 			);
 		}
 
 		if ( ! empty( $tax_query_item ) ) {
 			$shop_isle_products_slider_args['tax_query']['relation'] = 'AND';
-			$shop_isle_products_slider_args['tax_query']             = array_merge( $shop_isle_products_slider_args['tax_query'], $tax_query_item );
+			$shop_isle_products_slider_args['tax_query'] = array_merge( $shop_isle_products_slider_args['tax_query'],$tax_query_item );
 		}
 
 		if ( ! empty( $meta_query_item ) ) {
 			$shop_isle_products_slider_args['meta_query'] = $meta_query_item;
 		}
 
-		if ( ! empty( $shop_isle_products_slider_category ) && ( $shop_isle_products_slider_category != '-' ) ) :
+		if ( ! empty( $shop_isle_products_slider_category ) && ($shop_isle_products_slider_category != '-') ) :
 
 			$shop_isle_products_slider_loop = new WP_Query( $shop_isle_products_slider_args );
 
 			if ( $shop_isle_products_slider_loop->have_posts() ) :
 
-				$rtl_slider      = apply_filters( 'shop_isle_products_slider_single_rtl', 'false' );
+				$rtl_slider = apply_filters( 'shop_isle_products_slider_single_rtl', 'false' );
 				$number_of_items = apply_filters( 'shop_isle_products_slider_single_items', 5 );
-				$pagination      = apply_filters( 'shop_isle_products_slider_single_pagination', 'false' );
-				$navigation      = apply_filters( 'shop_isle_products_slider_single_navigation', 'false' );
+				$pagination = apply_filters( 'shop_isle_products_slider_single_pagination', 'false' );
+				$navigation = apply_filters( 'shop_isle_products_slider_single_navigation', 'false' );
 
 				echo '<div class="row">';
 
@@ -491,10 +480,10 @@ function shop_isle_products_slider_on_single_page() {
 
 					if ( $shop_isle_products_slider_loop->have_posts() ) :
 
-						$rtl_slider      = apply_filters( 'shop_isle_products_slider_single_rtl', 'false' );
+						$rtl_slider = apply_filters( 'shop_isle_products_slider_single_rtl', 'false' );
 						$number_of_items = apply_filters( 'shop_isle_products_slider_single_items', 5 );
-						$pagination      = apply_filters( 'shop_isle_products_slider_single_pagination', 'false' );
-						$navigation      = apply_filters( 'shop_isle_products_slider_single_navigation', 'false' );
+						$pagination = apply_filters( 'shop_isle_products_slider_single_pagination', 'false' );
+						$navigation = apply_filters( 'shop_isle_products_slider_single_navigation', 'false' );
 
 						echo '<div class="row">';
 
@@ -509,7 +498,7 @@ function shop_isle_products_slider_on_single_page() {
 							echo '<div class="ex-product">';
 							echo '<a href="' . esc_url( get_permalink() ) . '">' . woocommerce_get_product_thumbnail() . '</a>';
 							echo '<h4 class="shop-item-title font-alt"><a href="' . esc_url( get_permalink() ) . '">' . get_the_title() . '</a></h4>';
-								$product     = new WC_Product( get_the_ID() );
+								$product = new WC_Product( get_the_ID() );
 								$rating_html = '';
 							if ( function_exists( 'method_exists' ) && function_exists( 'wc_get_rating_html' ) && method_exists( $product, 'get_average_rating' ) ) {
 								$shop_isle_avg = $product->get_average_rating();
@@ -562,7 +551,7 @@ if ( ! function_exists( 'shop_isle_search_products_no_results_wrapper' ) ) {
 
 		$shop_isle_body_classes = get_body_class();
 
-		if ( is_search() && in_array( 'woocommerce', $shop_isle_body_classes ) && in_array( 'search-no-results', $shop_isle_body_classes ) ) {
+		if ( is_search() && in_array( 'woocommerce',$shop_isle_body_classes ) && in_array( 'search-no-results',$shop_isle_body_classes ) ) {
 			echo '<section class="module-small module-small-shop">';
 				echo '<div class="container">';
 		}
@@ -577,7 +566,7 @@ if ( ! function_exists( 'shop_isle_search_products_no_results_wrapper_end' ) ) {
 
 		$shop_isle_body_classes = get_body_class();
 
-		if ( is_search() && in_array( 'woocommerce', $shop_isle_body_classes ) && in_array( 'search-no-results', $shop_isle_body_classes ) ) {
+		if ( is_search() && in_array( 'woocommerce',$shop_isle_body_classes ) && in_array( 'search-no-results',$shop_isle_body_classes ) ) {
 				echo '</div><!-- .container -->';
 			echo '</section><!-- .module-small -->';
 		}
@@ -611,12 +600,12 @@ if ( ! function_exists( 'shop_isle_loop_product_thumbnail' ) ) {
 		if ( has_post_thumbnail() ) {
 			if ( function_exists( 'wc_get_product_attachment_props' ) ) {
 
-				$props      = wc_get_product_attachment_props( get_post_thumbnail_id(), $product );
+				$props = wc_get_product_attachment_props( get_post_thumbnail_id(), $product );
 				$product_id = get_the_ID();
 				echo get_the_post_thumbnail(
 					$product_id, $image_size, array(
-						'title' => $props['title'],
-						'alt'   => $props['alt'],
+						'title'  => $props['title'],
+						'alt'    => $props['alt'],
 					)
 				);
 			}
@@ -669,7 +658,7 @@ if ( ! function_exists( 'shop_isle_woocommerce_product_archive_description' ) ) 
 	 */
 	function shop_isle_woocommerce_product_archive_description() {
 		if ( is_post_type_archive( 'product' ) ) {
-			$shop_page = get_post( wc_get_page_id( 'shop' ) );
+			$shop_page   = get_post( wc_get_page_id( 'shop' ) );
 			if ( $shop_page ) {
 				$description = wc_format_content( $shop_page->post_content );
 				if ( $description ) {
@@ -700,7 +689,7 @@ function shop_isle_outofstock_notify_on_archives() {
 	global $product;
 	if ( function_exists( 'method_exists' ) && method_exists( $product, 'managing_stock' ) && method_exists( $product, 'is_in_stock' ) ) {
 		if ( ! $product->managing_stock() && ! $product->is_in_stock() ) {
-			echo '<span class="onsale out-of-stock">' . esc_html__( 'Out of Stock', 'shop-isle' ) . '</span>';
+			echo '<span class="onsale out-of-stock">' . esc_html__( 'Out of Stock','shop-isle' ) . '</span>';
 		}
 	}
 }

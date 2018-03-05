@@ -31,10 +31,10 @@ function shop_isle_video_controls_customize_register( $wp_customize ) {
 
 	$wp_customize->add_control(
 		'shop_isle_video_hide', array(
-			'type'     => 'checkbox',
-			'label'    => __( 'Hide video section?', 'shop-isle' ),
-			'section'  => 'shop_isle_video_section',
-			'priority' => 1,
+			'type'        => 'checkbox',
+			'label'       => __( 'Hide video section?', 'shop-isle' ),
+			'section'     => 'shop_isle_video_section',
+			'priority'    => 1,
 		)
 	);
 
@@ -79,9 +79,9 @@ function shop_isle_video_controls_customize_register( $wp_customize ) {
 	$wp_customize->add_control(
 		new WP_Customize_Image_Control(
 			$wp_customize, 'shop_isle_yt_thumbnail', array(
-				'label'    => __( 'Video thumbnail', 'shop-isle' ),
-				'section'  => 'shop_isle_video_section',
-				'priority' => 4,
+				'label'       => __( 'Video thumbnail', 'shop-isle' ),
+				'section'     => 'shop_isle_video_section',
+				'priority'    => 4,
 			)
 		)
 	);

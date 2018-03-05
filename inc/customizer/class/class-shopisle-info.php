@@ -21,7 +21,7 @@ class ShopIsle_Info extends WP_Customize_Control {
 	 * Enqueue required scripts and styles.
 	 */
 	public function enqueue() {
-		wp_enqueue_style( 'shopisle-theme-info-control', get_template_directory_uri() . '/assets/css/admin-style.css', array(), SI_VERSION );
+		wp_enqueue_style( 'shopisle-theme-info-control', get_template_directory_uri() . '/assets/css/admin-style.css','1.0.0' );
 	}
 	/**
 	 * The render function for the controler

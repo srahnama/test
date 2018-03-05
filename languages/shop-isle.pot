@@ -2,9 +2,9 @@
 # This file is distributed under the GNU General Public License v2 or later.
 msgid ""
 msgstr ""
-"Project-Id-Version: ShopIsle PRO 2.2.20\n"
+"Project-Id-Version: ShopIsle PRO 2.2.17\n"
 "Report-Msgid-Bugs-To: https://github.com/Codeinwp/shop-isle-pro/issues\n"
-"POT-Creation-Date: 2017-09-15 09:44:17+00:00\n"
+"POT-Creation-Date: 2017-07-27 14:23:05+00:00\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
@@ -32,27 +32,27 @@ msgstr ""
 msgid "Back to home page"
 msgstr ""
 
-#: archive.php:96 home.php:131
+#: archive.php:96 home.php:127
 #: inc/customizer/features/feature-frontpage-big-title-section-controls.php:96
 #: inc/customizer/features/feature-frontpage-slider-section-controls.php:55
 #: inc/customizer/features/feature-frontpage-slider-section-controls.php:62
 #: inc/customizer/features/feature-frontpage-slider-section-controls.php:69
-#: inc/functions/extras.php:166 inc/functions/extras.php:173
-#: inc/functions/extras.php:180 inc/functions/setup.php:373
+#: inc/functions/extras.php:188 inc/functions/extras.php:195
+#: inc/functions/extras.php:202 inc/functions/setup.php:373
 #: inc/functions/setup.php:380 inc/functions/setup.php:387
 #: inc/sections/shop_isle_big_title_section.php:27
 #: inc/sections/shop_isle_slider_section.php:29
 #: inc/sections/shop_isle_slider_section.php:36
-#: inc/sections/shop_isle_slider_section.php:43 index.php:135
-#: template-blog.php:128
+#: inc/sections/shop_isle_slider_section.php:43 index.php:131
+#: template-blog.php:127
 msgid "Read more"
 msgstr ""
 
-#: archive.php:108 home.php:143 index.php:147 template-blog.php:140
+#: archive.php:108 home.php:139 index.php:143 template-blog.php:139
 msgid "<span class=\"meta-nav\">&laquo;</span> Older posts"
 msgstr ""
 
-#: archive.php:109 home.php:144 index.php:148 template-blog.php:141
+#: archive.php:109 home.php:140 index.php:144 template-blog.php:140
 msgid "Newer posts <span class=\"meta-nav\">&raquo;</span>"
 msgstr ""
 
@@ -440,7 +440,7 @@ msgstr ""
 msgid "Loading..."
 msgstr ""
 
-#: home.php:39 inc/customizer/features/feature-blog-header-controls.php:17
+#: home.php:31 inc/customizer/features/feature-blog-header-controls.php:17
 msgid "Blog"
 msgstr ""
 
@@ -487,8 +487,8 @@ msgstr ""
 #: inc/customizer/features/feature-frontpage-slider-section-controls.php:53
 #: inc/customizer/features/feature-frontpage-slider-section-controls.php:60
 #: inc/customizer/features/feature-frontpage-slider-section-controls.php:67
-#: inc/functions/extras.php:164 inc/functions/extras.php:171
-#: inc/functions/extras.php:178 inc/functions/setup.php:371
+#: inc/functions/extras.php:186 inc/functions/extras.php:193
+#: inc/functions/extras.php:200 inc/functions/setup.php:371
 #: inc/functions/setup.php:378 inc/functions/setup.php:385
 #: inc/sections/shop_isle_slider_section.php:27
 #: inc/sections/shop_isle_slider_section.php:34
@@ -506,7 +506,7 @@ msgstr ""
 #: inc/customizer/customize-pro/class-shopisle-customizer-upsell.php:102
 #: inc/customizer/customize-pro/lite-pro-upsells/class-shopisle-lite-customize-upsell.php:102
 #: inc/customizer/customize-pro/lite-pro-upsells/class-shopisle-wporg-customize-upsell.php:102
-#: inc/customizer/features/customizer-theme-info.php:47 inc/init.php:25
+#: inc/customizer/features/customizer-theme-info.php:47 inc/init.php:21
 msgid "Categories Section"
 msgstr ""
 
@@ -674,7 +674,7 @@ msgid "None"
 msgstr ""
 
 #: inc/customizer/customizer-repeater/class/customizer-repeater-control.php:389
-#: inc/functions/extras.php:208 inc/sections/shop_isle_services_section.php:22
+#: inc/functions/extras.php:230 inc/sections/shop_isle_services_section.php:22
 msgid "Social icons"
 msgstr ""
 
@@ -805,7 +805,7 @@ msgid "About us page - our advantages"
 msgstr ""
 
 #: inc/customizer/features/feature-about-us-controls.php:305
-#: inc/functions/extras.php:209 inc/functions/extras.php:266
+#: inc/functions/extras.php:231 inc/functions/extras.php:288
 #: inc/functions/setup.php:543 inc/sections/shop_isle_services_section.php:23
 #: template-about.php:245
 msgid "Ideas and concepts"
@@ -815,8 +815,8 @@ msgstr ""
 #: inc/customizer/features/feature-about-us-controls.php:311
 #: inc/customizer/features/feature-about-us-controls.php:316
 #: inc/customizer/features/feature-about-us-controls.php:321
-#: inc/functions/extras.php:267 inc/functions/extras.php:272
-#: inc/functions/extras.php:277 inc/functions/extras.php:282
+#: inc/functions/extras.php:289 inc/functions/extras.php:294
+#: inc/functions/extras.php:299 inc/functions/extras.php:304
 #: inc/functions/setup.php:544 inc/functions/setup.php:549
 #: inc/functions/setup.php:554 inc/functions/setup.php:559
 #: template-about.php:246 template-about.php:251 template-about.php:256
@@ -825,20 +825,20 @@ msgid "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
 msgstr ""
 
 #: inc/customizer/features/feature-about-us-controls.php:310
-#: inc/functions/extras.php:271 inc/functions/setup.php:548
+#: inc/functions/extras.php:293 inc/functions/setup.php:548
 #: template-about.php:250
 msgid "Designs & interfaces"
 msgstr ""
 
 #: inc/customizer/features/feature-about-us-controls.php:315
-#: inc/functions/extras.php:220 inc/functions/extras.php:276
+#: inc/functions/extras.php:242 inc/functions/extras.php:298
 #: inc/functions/setup.php:553 inc/sections/shop_isle_services_section.php:34
 #: template-about.php:255
 msgid "Highly customizable"
 msgstr ""
 
 #: inc/customizer/features/feature-about-us-controls.php:320
-#: inc/functions/extras.php:221 inc/functions/extras.php:281
+#: inc/functions/extras.php:243 inc/functions/extras.php:303
 #: inc/functions/setup.php:558 inc/sections/shop_isle_services_section.php:35
 #: template-about.php:260
 msgid "Easy to use"
@@ -943,7 +943,7 @@ msgid "Social"
 msgstr ""
 
 #: inc/customizer/features/feature-frontpage-banners-section-controls.php:18
-#: inc/init.php:24
+#: inc/init.php:20
 msgid "Banners section"
 msgstr ""
 
@@ -979,8 +979,8 @@ msgstr ""
 #: inc/customizer/features/feature-frontpage-slider-section-controls.php:54
 #: inc/customizer/features/feature-frontpage-slider-section-controls.php:61
 #: inc/customizer/features/feature-frontpage-slider-section-controls.php:68
-#: inc/functions/extras.php:165 inc/functions/extras.php:172
-#: inc/functions/extras.php:179 inc/functions/setup.php:372
+#: inc/functions/extras.php:187 inc/functions/extras.php:194
+#: inc/functions/extras.php:201 inc/functions/setup.php:372
 #: inc/functions/setup.php:379 inc/functions/setup.php:386
 #: inc/sections/shop_isle_big_title_section.php:26
 #: inc/sections/shop_isle_slider_section.php:28
@@ -1042,7 +1042,7 @@ msgstr ""
 
 #: inc/customizer/features/feature-frontpage-products-section-controls.php:28
 #: inc/customizer/features/feature-frontpage-products-slider-section-controls.php:27
-#: inc/functions/extras.php:214 inc/sections/shop_isle_services_section.php:28
+#: inc/functions/extras.php:236 inc/sections/shop_isle_services_section.php:28
 #. translators: 1: Link to WiooCommerce Plugin. 2: 'WooCommerce'
 msgid "WooCommerce"
 msgstr ""
@@ -1098,12 +1098,12 @@ msgstr ""
 
 #: inc/customizer/features/feature-frontpage-products-slider-section-controls.php:83
 #: inc/sections/shop_isle_products_slider_section.php:21
-#: inc/woocommerce/functions.php:366
+#: inc/woocommerce/functions.php:337
 msgid "Exclusive products"
 msgstr ""
 
 #: inc/customizer/features/feature-frontpage-products-slider-section-controls.php:100
-#: inc/woocommerce/functions.php:367
+#: inc/woocommerce/functions.php:338
 msgid "Special category of products"
 msgstr ""
 
@@ -1234,7 +1234,7 @@ msgstr ""
 msgid "Keep the old static frontpage template?"
 msgstr ""
 
-#: inc/functions/extras.php:215 inc/sections/shop_isle_services_section.php:29
+#: inc/functions/extras.php:237 inc/sections/shop_isle_services_section.php:29
 #: inc/structure/template-tags.php:135
 msgid "Top Rated Products"
 msgstr ""
@@ -1263,7 +1263,7 @@ msgstr ""
 msgid "Sidebar Shop Page"
 msgstr ""
 
-#: inc/init.php:119 inc/structure/header.php:89
+#: inc/init.php:115 inc/structure/header.php:89
 #: inc/woocommerce/template-tags.php:20
 msgid "View your shopping cart"
 msgstr ""
@@ -1277,7 +1277,7 @@ msgstr ""
 #: inc/sections/shop_isle_products_section.php:308
 #: inc/sections/shop_isle_products_slider_section.php:145
 #: inc/sections/shop_isle_products_slider_section.php:218
-#: inc/woocommerce/functions.php:703
+#: inc/woocommerce/functions.php:674
 msgid "Out of Stock"
 msgstr ""
 
@@ -1323,7 +1323,7 @@ msgstr ""
 msgid "powered by"
 msgstr ""
 
-#: inc/structure/header.php:69
+#: inc/structure/header.php:50
 msgid "Toggle navigation"
 msgstr ""
 
@@ -1490,17 +1490,17 @@ msgid_plural "%1$s thoughts on &ldquo;%2$s&rdquo;"
 msgstr[0] ""
 msgstr[1] ""
 
-#: inc/structure/header.php:99
+#: inc/structure/header.php:80
 msgctxt "placeholder"
 msgid "Search Products&hellip;"
 msgstr ""
 
-#: inc/structure/header.php:99
+#: inc/structure/header.php:80
 msgctxt "label"
 msgid "Search for:"
 msgstr ""
 
-#: inc/structure/header.php:100
+#: inc/structure/header.php:81
 msgctxt "submit button"
 msgid "Search"
 msgstr ""

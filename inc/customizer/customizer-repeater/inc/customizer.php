@@ -1,13 +1,4 @@
 <?php
-/**
- * Customizer scripts for Repeater control
- *
- * @package Shop Isle
- */
-
-/**
- * Require the script needed for the Repeater control
- */
 function customizer_repeater_register( $wp_customize ) {
 
 	require_once( get_template_directory() . '/inc/customizer/customizer-repeater/class/customizer-repeater-control.php' );
@@ -15,11 +6,8 @@ function customizer_repeater_register( $wp_customize ) {
 }
 add_action( 'customize_register', 'customizer_repeater_register' );
 
-/**
- * Sanitize the repeater customizer control
- */
 function customizer_repeater_sanitize( $input ) {
-	$input_decoded = json_decode( $input, true );
+	$input_decoded = json_decode( $input,true );
 
 	if ( ! empty( $input_decoded ) ) {
 		foreach ( $input_decoded as $boxk => $box ) {

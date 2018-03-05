@@ -53,7 +53,7 @@ if ( taxonomy_exists( 'product_visibility' ) ) {
 	$tax_query_item = array(
 		array(
 			'taxonomy' => 'product_visibility',
-			'field'    => 'name',
+			'field'    => 'term_id',
 			'terms'    => 'exclude-from-catalog',
 			'operator' => 'NOT IN',
 		),
@@ -98,10 +98,10 @@ if ( ! empty( $shop_isle_products_slider_category ) && ( $shop_isle_products_sli
 
 	if ( $shop_isle_products_slider_loop->have_posts() ) :
 
-		$rtl_slider      = apply_filters( 'shop_isle_products_slider_section_rtl', 'false' );
+		$rtl_slider = apply_filters( 'shop_isle_products_slider_section_rtl', 'false' );
 		$number_of_items = apply_filters( 'shop_isle_products_slider_section_items', 5 );
-		$pagination      = apply_filters( 'shop_isle_products_slider_section_pagination', 'false' );
-		$navigation      = apply_filters( 'shop_isle_products_slider_section_navigation', 'false' );
+		$pagination = apply_filters( 'shop_isle_products_slider_section_pagination', 'false' );
+		$navigation = apply_filters( 'shop_isle_products_slider_section_navigation', 'false' );
 
 		echo '<div class="row">';
 
@@ -171,10 +171,10 @@ else :
 
 	if ( $shop_isle_products_slider_loop->have_posts() ) :
 
-		$rtl_slider      = apply_filters( 'shop_isle_products_slider_section_rtl', 'false' );
+		$rtl_slider = apply_filters( 'shop_isle_products_slider_section_rtl', 'false' );
 		$number_of_items = apply_filters( 'shop_isle_products_slider_section_items', 5 );
-		$pagination      = apply_filters( 'shop_isle_products_slider_section_pagination', 'false' );
-		$navigation      = apply_filters( 'shop_isle_products_slider_section_navigation', 'false' );
+		$pagination = apply_filters( 'shop_isle_products_slider_section_pagination', 'false' );
+		$navigation = apply_filters( 'shop_isle_products_slider_section_navigation', 'false' );
 		echo '<div class="row">';
 
 		echo '<div class="owl-carousel text-center" data-items="' . esc_attr( $number_of_items ) . '" data-pagination="' . esc_attr( $pagination ) . '" data-navigation="' . esc_attr( $navigation ) . '" data-rtl="' . esc_attr( $rtl_slider ) . '">';

@@ -28,10 +28,10 @@ if ( ! function_exists( 'shop_isle_comment' ) ) {
 	 */
 	function shop_isle_comment( $comment, $args, $depth ) {
 		if ( 'div' == $args['style'] ) {
-			$tag       = 'div';
+			$tag = 'div';
 			$add_below = 'comment';
 		} else {
-			$tag       = 'li';
+			$tag = 'li';
 			$add_below = 'div-comment';
 		}
 		?>
@@ -61,13 +61,13 @@ if ( ! function_exists( 'shop_isle_comment' ) ) {
 					<?php echo '<time>' . get_comment_date() . '</time>'; ?>
 				</a>
 				<div class="reply">
-					&nbsp; - &nbsp;
+					 &nbsp; - &nbsp;
 					<?php
 					comment_reply_link(
 						array_merge(
 							$args, array(
 								'add_below' => $add_below,
-								'depth'     => $depth,
+								'depth' => $depth,
 								'max_depth' => $args['max_depth'],
 							)
 						)

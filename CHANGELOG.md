@@ -1,86 +1,4 @@
 
-### 2.2.34 - 05/02/2018
-**Changes:** 
-- Fixed product gallery compatibility issue with WooCommerce 3.3
-- Improved the checkout page layout
-
-### 2.2.33 - 26/01/2018
-**Changes:** 
-- Changed Big Title/Slider section main div to an h1 tag for SEO purposes and lowered the letter spacing
-- Enqueue smooth scroll script only for different browsers than chrome
-
-### 2.2.32 - 05/12/2017
-**Changes:** 
-- Fixed compatibility issues with latest WooCommerce version causing products to not show on frontpage
-- Fixed issue with Products categories section not linking to the appropriate categories.
-
-### 2.2.31 - 20/11/2017
-**Changes:** 
-- [Shop Isle PRO] Fixed undefined ID in the shortcode section
-
-### 2.2.30 - 15/11/2017
-**Changes:** 
-- Fixed Big title to slider migration when Big title is empty
-- Fixed problem with hidden labels in the Color control in WordPress 4.9
-- [Shop Isle PRO] New Very Top Bar section
-
-### 2.2.29 - 25/10/2017
-**Changes:** 
-- Use featured image as header of pages for all page templates
-
-### 2.2.28 - 24/10/2017
-**Changes:** 
-- Fixed issue with affiliate button for products
-- Fixed issue with quantity button alignment with latest WooCommerce release
-
-### 2.2.27 - 20/10/2017
-**Changes:** 
-- Fixed woocommerce gallery thumbnails size with latest WooCommerce
-
-### 2.2.26 - 13/10/2017
-**Changes:** 
-- Fixed error with WooCommerce 3.2
-
-### 2.2.25 - 11/10/2017
-**Changes:** 
-- Fixed issue with logo image size
-
-### 2.2.24 - 10/10/2017
-**Changes:** 
-- Allow flexible height and width for the logo
-
-### 2.2.23 - 06/10/2017
-**Changes:** 
-- Updated the jquery.mb.YTPlayer library
-- Added support for core logo option
-- Fixed issue with large space between products gallery images
-- Aligned Cross-sells products on Cart page
-- Fixed issue with alt tag for resized images used in the Banners section
-
-### 2.2.22 - 03/10/2017
-**Changes:** 
-- Fixed SEO issue with Site title and description
-- Removed schema.org tags to allow plugins to work
-- Open social links from the footer in a new tab
-- Added minified versions for the most important scripts
-- Fixed display issue on the tags archive page
-- Increased size of the dropdown menus arrows to allow better usage on mobile devices
-
-### 2.2.21 - 29/09/2017
-**Changes:** 
-- Fixed issue with the Read more button being duplicated
-- Use featured image as header of pages
-- Fixed issue with background color not working on the product reviews section
-
-### 2.2.20 - 01/09/2017
-**Changes:** 
-- Added Elementor partner ID
-- Changed the upgrade links
-
-### 2.2.19 - 21/08/2017
-**Changes:** 
-- Fixed issue with repeater translations looping with Polylang
-
 ### 2.2.18 - 07/08/2017
 **Changes:** 
 - Added page builder templates

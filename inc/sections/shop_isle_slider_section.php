@@ -56,20 +56,13 @@ if ( ! empty( $shop_isle_homepage_slider_shortcode ) ) {
 
 			echo '<ul class="slides">';
 
-			/**
-			 * Variable used to make the title of the first slide an <h1> tag.
-			 * The rest of the slides will use a <div> tag
-			 * For SEO purposes
-			 */
-			$has_h1_tag = 0;
-
 			foreach ( $shop_isle_slider_decoded as $shop_isle_slide ) {
 
 				$image_url = ! empty( $shop_isle_slide->image_url ) ? apply_filters( 'shop_isle_translate_single_string', $shop_isle_slide->image_url, 'Slider section' ) : '';
-				$text      = ! empty( $shop_isle_slide->text ) ? apply_filters( 'shop_isle_translate_single_string', $shop_isle_slide->text, 'Slider section' ) : '';
-				$subtext   = ! empty( $shop_isle_slide->subtext ) ? apply_filters( 'shop_isle_translate_single_string', $shop_isle_slide->subtext, 'Slider section' ) : '';
-				$link      = ! empty( $shop_isle_slide->link ) ? apply_filters( 'shop_isle_translate_single_string', $shop_isle_slide->link, 'Slider section' ) : '';
-				$label     = ! empty( $shop_isle_slide->label ) ? apply_filters( 'shop_isle_translate_single_string', $shop_isle_slide->label, 'Slider section' ) : '';
+				$text = ! empty( $shop_isle_slide->text ) ? apply_filters( 'shop_isle_translate_single_string', $shop_isle_slide->text, 'Slider section' ) : '';
+				$subtext = ! empty( $shop_isle_slide->subtext ) ? apply_filters( 'shop_isle_translate_single_string', $shop_isle_slide->subtext, 'Slider section' ) : '';
+				$link = ! empty( $shop_isle_slide->link ) ? apply_filters( 'shop_isle_translate_single_string', $shop_isle_slide->link, 'Slider section' ) : '';
+				$label = ! empty( $shop_isle_slide->label ) ? apply_filters( 'shop_isle_translate_single_string', $shop_isle_slide->label, 'Slider section' ) : '';
 
 
 				if ( ! empty( $image_url ) ) {
@@ -79,12 +72,7 @@ if ( ! empty( $shop_isle_homepage_slider_shortcode ) ) {
 					echo '<div class="caption-content">';
 
 					if ( ! empty( $text ) ) {
-						if ( ! $has_h1_tag ) {
-							echo '<h1 class="hs-title-size-4 font-alt mb-30">' . wp_kses_post( $text ) . '</h1>';
-							$has_h1_tag = 1;
-						} else {
-							echo '<div class="hs-title-size-4 font-alt mb-30">' . wp_kses_post( $text ) . '</div>';
-						}
+						echo '<div class="hs-title-size-4 font-alt mb-30">' . wp_kses_post( $text ) . '</div>';
 					}
 
 					if ( ! empty( $subtext ) ) {

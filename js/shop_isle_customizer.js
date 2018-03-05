@@ -213,13 +213,6 @@ jQuery(document).ready(function(){
 			shop_isle_refresh_general_control_values();
 		}
 	});
-
-    jQuery( '#customize-theme-controls' ).on(
-        'click', '.shop-isle-link-to-top-menu', function() {
-            wp.customize.section( 'menu_locations' ).focus();
-        }
-    );
-
 });
 
 

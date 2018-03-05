@@ -11,38 +11,38 @@
  */
 class Shop_Isle_Pro_Palette extends WP_Customize_Control {
 
-	/**
-	 * Render the content of the category dropdown
-	 */
+	 /**
+	  * Render the content of the category dropdown
+	  */
 	public function render_content() {
 
 		$values = $this->value();
-		$json   = json_decode( $values );
+		$json = json_decode( $values );
 
 		$shop_isle_pro_pallete = array(
 			array(
 				'pallete_name' => 'p1',
-				'color1'       => '#2C3E50',
-				'color2'       => '#6DBCDB',
-				'color3'       => '#2C3E50',
-				'color4'       => '#FC4349',
-				'color5'       => '#FFFFFF',
+				'color1' => '#2C3E50',
+				'color2' => '#6DBCDB',
+				'color3' => '#2C3E50',
+				'color4' => '#FC4349',
+				'color5' => '#FFFFFF',
 			),
 			array(
 				'pallete_name' => 'p2',
-				'color1'       => '#F2385A',
-				'color2'       => '#31656B',
-				'color3'       => '#29474A',
-				'color4'       => '#4AD9D9',
-				'color5'       => '#FAFFF4',
+				'color1' => '#F2385A',
+				'color2' => '#31656B',
+				'color3' => '#29474A',
+				'color4' => '#4AD9D9',
+				'color5' => '#FAFFF4',
 			),
 			array(
 				'pallete_name' => 'p3',
-				'color1'       => '#DB9E36',
-				'color2'       => '#105B63',
-				'color3'       => '#105B63',
-				'color4'       => '#BD4932',
-				'color5'       => '#FFFFF5',
+				'color1' => '#DB9E36',
+				'color2' => '#105B63',
+				'color3' => '#105B63',
+				'color4' => '#BD4932',
+				'color5' => '#FFFFF5',
 			),
 		);
 		?>
@@ -57,7 +57,7 @@ class Shop_Isle_Pro_Palette extends WP_Customize_Control {
 						echo '<span style="background-color:' . $color . '"></span>';
 					}
 				} else {
-					esc_html_e( 'Default', 'shop-isle' );
+					esc_html_e( 'Default','shop-isle' );
 				}
 				?>
 			</div>
@@ -66,7 +66,7 @@ class Shop_Isle_Pro_Palette extends WP_Customize_Control {
 		<ul class="shop_isle_pro_palette_picker">
 			<?php
 				echo '<li class="shop_isle_pro_pallete_default">';
-					esc_html_e( 'Default', 'shop-isle' );
+					 esc_html_e( 'Default','shop-isle' );
 				echo '</li>';
 			foreach ( $shop_isle_pro_pallete as $pallete ) {
 				echo '<li class="' . esc_attr( $pallete['pallete_name'] ) . '">';

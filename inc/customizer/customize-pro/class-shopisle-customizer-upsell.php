@@ -105,7 +105,7 @@ final class Shopisle_Customizer_Upsell {
 						esc_html__( 'Services Section', 'shop-isle' ),
 						esc_html__( 'Shortcodes Section', 'shop-isle' ),
 					),
-					'button_url'  => esc_url( 'https://themeisle.com/themes/shop-isle-pro/upgrade/' ),
+					'button_url'  => esc_url( 'https://www.themeisle.com/themes/shop-isle-pro/' ),
 					'button_text' => esc_html__( 'View PRO version', 'shop-isle' ),
 				)
 			)
@@ -136,8 +136,8 @@ final class Shopisle_Customizer_Upsell {
 								esc_html__( 'doc', 'shop-isle' )
 							)
 						),
-						'panel'       => 'shop_isle_front_page_sections',
-						'priority'    => 1,
+						'panel'    => 'shop_isle_front_page_sections',
+						'priority' => 1,
 					)
 				)
 			);

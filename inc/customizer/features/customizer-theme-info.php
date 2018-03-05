@@ -34,9 +34,9 @@ function shopisle_theme_info_customize_register( $wp_customize ) {
 	$wp_customize->add_control(
 		new Shopisle_Control_Upsell(
 			$wp_customize, 'shopisle_upsell_pro_features_main', array(
-				'section'            => 'shopisle_pro_features_section',
-				'priority'           => 100,
-				'options'            => array(
+				'section'      => 'shopisle_pro_features_section',
+				'priority'     => 100,
+				'options'      => array(
 					esc_html__( 'Enhanced Cart', 'shop-isle' ),
 					esc_html__( 'Get full color schemes support for your site. ', 'shop-isle' ),
 					esc_html__( 'Section Reordering', 'shop-isle' ),
@@ -50,9 +50,9 @@ function shopisle_theme_info_customize_register( $wp_customize ) {
 				'explained_features' => array(
 					esc_html( 'Allow visitors to easily mange their cart in a popup without changing the page, helping with your user experience and conversions.' ),
 				),
-				'button_url'         => esc_url( 'https://themeisle.com/themes/shop-isle-pro/upgrade/' ),
+				'button_url'   => esc_url( 'https://www.themeisle.com/themes/shop-isle-pro/' ),
 				// xss ok
-				'button_text'        => esc_html__( 'View PRO version', 'shop-isle' ),
+				'button_text'  => esc_html__( 'View PRO version', 'shop-isle' ),
 			)
 		)
 	);
@@ -67,14 +67,14 @@ function shopisle_theme_info_customize_register( $wp_customize ) {
 	$wp_customize->add_control(
 		new Shopisle_Control_Upsell(
 			$wp_customize, 'shopisle_upsell_colors', array(
-				'section'     => 'colors',
-				'priority'    => 100,
-				'options'     => array(
+				'section'      => 'colors',
+				'priority'     => 100,
+				'options'      => array(
 					esc_html__( 'Three New Color Schemes', 'shop-isle' ),
 				),
-				'button_url'  => esc_url( 'https://themeisle.com/themes/shop-isle-pro/upgrade/' ),
+				'button_url'   => esc_url( 'https://www.themeisle.com/themes/shop-isle-pro/' ),
 				// xss ok
-				'button_text' => esc_html__( 'View PRO version', 'shop-isle' ),
+				'button_text'  => esc_html__( 'View PRO version', 'shop-isle' ),
 			)
 		)
 	);

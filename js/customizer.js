@@ -62,6 +62,23 @@
     /******************************/
     /**********  Header ***********/
     /******************************/
+    wp.customize( 'shop_isle_logo', function( value ) {
+        value.bind( function( to ) {
+
+            if( to !== '' ) {
+                $( '.shop_isle_header_title .logo-image' ).removeClass( 'shop_isle_hidden_if_not_customizer' );
+                $( '.shop_isle_header_title h1' ).addClass( 'shop_isle_hidden_if_not_customizer' );
+                $( '.shop_isle_header_title h2' ).addClass( 'shop_isle_hidden_if_not_customizer' );
+            }
+            else {
+                $( '.shop_isle_header_title .logo-image' ).addClass( 'shop_isle_hidden_if_not_customizer' );
+                $( '.shop_isle_header_title h1' ).removeClass( 'shop_isle_hidden_if_not_customizer' );
+                $( '.shop_isle_header_title h2' ).removeClass( 'shop_isle_hidden_if_not_customizer' );
+            }
+            $( '.shop_isle_header_title img' ).attr( 'src', to );
+
+        } );
+    } );
 
     wp.customize( 'shop_isle_blog_header_title', function( value ) {
         value.bind( function( to ) {

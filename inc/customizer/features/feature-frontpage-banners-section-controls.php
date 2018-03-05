@@ -31,10 +31,10 @@ function shop_isle_banners_controls_customize_register( $wp_customize ) {
 	$wp_customize->add_control(
 		'shop_isle_banners_hide',
 		array(
-			'type'     => 'checkbox',
-			'label'    => __( 'Hide banners section?', 'shop-isle' ),
-			'section'  => 'shop_isle_banners_section',
-			'priority' => 1,
+			'type'        => 'checkbox',
+			'label'       => __( 'Hide banners section?', 'shop-isle' ),
+			'section'     => 'shop_isle_banners_section',
+			'priority'    => 1,
 		)
 	);
 
@@ -66,11 +66,11 @@ function shop_isle_banners_controls_customize_register( $wp_customize ) {
 					),
 					array(
 						'image_url' => get_template_directory_uri() . '/assets/images/banner2.jpg',
-						'link'      => '#',
+						'link' => '#',
 					),
 					array(
 						'image_url' => get_template_directory_uri() . '/assets/images/banner3.jpg',
-						'link'      => '#',
+						'link' => '#',
 					),
 				)
 			),

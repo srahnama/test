@@ -6,10 +6,6 @@
  * @subpackage Shop Isle
  */
 
-if ( ! defined( 'ELEMENTOR_PARTNER_ID' ) ) {
-	define( 'ELEMENTOR_PARTNER_ID', 2112 );
-}
-
 add_filter( 'image_size_names_choose', 'shop_isle_media_uploader_custom_sizes' );
 /**
  * Media uploader custom sizes.
@@ -21,8 +17,8 @@ add_filter( 'image_size_names_choose', 'shop_isle_media_uploader_custom_sizes' )
 function shop_isle_media_uploader_custom_sizes( $sizes ) {
 	return array_merge(
 		$sizes, array(
-			'shop_isle_banner_homepage'    => esc_html__( 'Banners section', 'shop-isle' ),
-			'shop_isle_category_thumbnail' => esc_html__( 'Categories Section', 'shop-isle' ),
+			'shop_isle_banner_homepage'     => esc_html__( 'Banners section', 'shop-isle' ),
+			'shop_isle_category_thumbnail'  => esc_html__( 'Categories Section', 'shop-isle' ),
 		)
 	);
 }
@@ -116,7 +112,7 @@ function shop_isle_woocommerce_header_add_to_cart_fragment( $fragments ) {
 	ob_start();
 	?>
 
-		<a href="<?php echo esc_url( wc_get_cart_url() ); ?>" title="<?php esc_html_e( 'View your shopping cart', 'shop-isle' ); ?>" class="cart-contents">
+		<a href="<?php echo esc_url( WC()->cart->get_cart_url() ); ?>" title="<?php esc_html_e( 'View your shopping cart','shop-isle' ); ?>" class="cart-contents">
 			<span class="icon-basket"></span>
 			<span class="cart-item-number"><?php echo esc_html( trim( WC()->cart->get_cart_contents_count() ) ); ?></span>
 		</a>
@@ -132,7 +128,7 @@ function shop_isle_woocommerce_header_add_to_cart_fragment( $fragments ) {
  * Migrate section order.
  */
 function shop_isle_migrate() {
-	$old_order      = get_theme_mod( 'shop_isle_sections_control' );
+	$old_order = get_theme_mod( 'shop_isle_sections_control' );
 	$sections_order = get_theme_mod( 'sections_order' );
 
 	if ( empty( $sections_order ) ) {
@@ -148,11 +144,11 @@ function shop_isle_migrate() {
 
 				/* Create json for new sections order */
 				if ( $iterator['section_id'] !== 'shop_isle_slider_section' ) {
-					$new_order[ $iterator['section_id'] ] = ( $key + 2 ) * 5;
+					$new_order[ $iterator['section_id'] ] = ($key + 2) * 5;
 				}
 			}
 
-			set_theme_mod( 'sections_order', json_encode( $new_order ) );
+			set_theme_mod( 'sections_order',json_encode( $new_order ) );
 		}
 	}
 	update_option( 'shop_isle_section_order_migrate', 'yes' );
@@ -163,13 +159,7 @@ if ( isset( $migrate ) && 'no' == $migrate ) {
 	add_action( 'wp_footer', 'shop_isle_migrate' );
 }
 
-/**
- * Filter the read more button text ( from the read more tag in admin ) to match the theme's read more text
- */
-function shop_isle_more_link( $more_link, $more_link_text ) {
-	return str_replace( $more_link_text, esc_html__( 'Read more', 'shop-isle' ), $more_link );
-}
-add_filter( 'the_content_more_link', 'shop_isle_more_link', 10, 2 );
+
 
 
 

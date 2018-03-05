@@ -12,7 +12,7 @@
 function shop_isle_no_content_get_header() {
 	?>
 	<!DOCTYPE html>
-	<html <?php language_attributes(); ?>>
+	<html <?php language_attributes(); ?> <?php shop_isle_html_tag_schema(); ?>>
 	<head>
 		<meta charset="<?php bloginfo( 'charset' ); ?>">
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
@@ -57,10 +57,10 @@ function shop_isle_header_footer_render() {
 	$footer_ids = FLThemeBuilderLayoutData::get_current_page_footer_ids();
 	// If we have a footer, remove the theme footer and hook in Theme Builder's.
 	if ( ! empty( $footer_ids ) ) {
-		remove_action( 'shop_isle_footer', 'shop_isle_footer_wrap_open', 5 );
-		remove_action( 'shop_isle_footer', 'shop_isle_footer_widgets', 10 );
-		remove_action( 'shop_isle_footer', 'shop_isle_footer_copyright_and_socials', 20 );
-		remove_action( 'shop_isle_footer', 'shop_isle_footer_wrap_close', 30 );
+		remove_action( 'shop_isle_footer', 'shop_isle_footer_wrap_open',                    5 );
+		remove_action( 'shop_isle_footer', 'shop_isle_footer_widgets',                      10 );
+		remove_action( 'shop_isle_footer', 'shop_isle_footer_copyright_and_socials',        20 );
+		remove_action( 'shop_isle_footer', 'shop_isle_footer_wrap_close',                   30 );
 
 		add_action( 'shop_isle_footer', 'FLThemeBuilderLayoutRenderer::render_footer' );
 	}

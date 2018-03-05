@@ -21,11 +21,11 @@ if ( ! function_exists( 'shop_isle_product_categories' ) ) {
 
 			$args = apply_filters(
 				'shop_isle_product_categories_args', array(
-					'limit'            => 3,
-					'columns'          => 3,
-					'child_categories' => 0,
-					'orderby'          => 'name',
-					'title'            => __( 'Product Categories', 'shop-isle' ),
+					'limit'             => 3,
+					'columns'           => 3,
+					'child_categories'  => 0,
+					'orderby'           => 'name',
+					'title'             => __( 'Product Categories', 'shop-isle' ),
 				)
 			);
 
@@ -58,9 +58,9 @@ if ( ! function_exists( 'shop_isle_recent_products' ) ) {
 
 			$args = apply_filters(
 				'shop_isle_recent_products_args', array(
-					'limit'   => 4,
-					'columns' => 4,
-					'title'   => __( 'Recent Products', 'shop-isle' ),
+					'limit'             => 4,
+					'columns'           => 4,
+					'title'             => __( 'Recent Products', 'shop-isle' ),
 				)
 			);
 
@@ -93,11 +93,11 @@ if ( ! function_exists( 'shop_isle_featured_products' ) ) {
 
 			$args = apply_filters(
 				'shop_isle_featured_products_args', array(
-					'limit'   => 4,
-					'columns' => 4,
-					'orderby' => 'date',
-					'order'   => 'desc',
-					'title'   => __( 'Featured Products', 'shop-isle' ),
+					'limit'             => 4,
+					'columns'           => 4,
+					'orderby'           => 'date',
+					'order'             => 'desc',
+					'title'             => __( 'Featured Products', 'shop-isle' ),
 				)
 			);
 
@@ -130,9 +130,9 @@ if ( ! function_exists( 'shop_isle_popular_products' ) ) {
 
 			$args = apply_filters(
 				'shop_isle_popular_products_args', array(
-					'limit'   => 4,
-					'columns' => 4,
-					'title'   => __( 'Top Rated Products', 'shop-isle' ),
+					'limit'             => 4,
+					'columns'           => 4,
+					'title'             => __( 'Top Rated Products', 'shop-isle' ),
 				)
 			);
 
@@ -165,9 +165,9 @@ if ( ! function_exists( 'shop_isle_on_sale_products' ) ) {
 
 			$args = apply_filters(
 				'shop_isle_on_sale_products_args', array(
-					'limit'   => 4,
-					'columns' => 4,
-					'title'   => __( 'On Sale', 'shop-isle' ),
+					'limit'             => 4,
+					'columns'           => 4,
+					'title'             => __( 'On Sale', 'shop-isle' ),
 				)
 			);
 
@@ -245,91 +245,3 @@ if ( ! function_exists( 'shop_isle_get_sidebar_shop_archive' ) ) {
 		get_sidebar( 'shop-archive' );
 	}
 }
-
-if ( ! function_exists( 'shop_isle_the_very_top_bar' ) ) {
-	/**
-	 * Function to display Very Top Bar.
-	 *
-	 * @param bool $is_callback Check if we need to add shop-isle-top-bar div.
-	 * @access public
-	 */
-	function shop_isle_the_very_top_bar( $is_callback = false ) {
-
-		$hide_top_bar = get_theme_mod( 'shop_isle_top_bar_hide', true );
-		if ( (bool) $hide_top_bar === true ) {
-			return;
-		}
-
-		$shop_isle_top_bar_alignment = get_theme_mod( 'shop_isle_top_bar_alignment', 'right' );
-		$menu_class                  = 'pull-right';
-		$sidebar_class               = 'pull-left';
-
-		if ( ! empty( $shop_isle_top_bar_alignment ) && $shop_isle_top_bar_alignment === 'left' ) {
-			$menu_class    = 'pull-left';
-			$sidebar_class = 'pull-right';
-		}
-
-		if ( $is_callback !== true ) {
-			echo '<div class="shop-isle-top-bar">';
-		}
-
-		echo '<div class="container">';
-			echo '<div class="row">';
-
-			/**
-			 * Call for sidebar
-			 */
-		if ( is_active_sidebar( 'sidebar-top-bar' ) ) {
-			$sidebar_class .= ' col-md-6';
-			if ( ! has_nav_menu( 'top-bar-menu' ) && ! current_user_can( 'manage_options' ) ) {
-				$sidebar_class .= ' col-md-12';
-			}
-			echo '<div class="' . esc_attr( $sidebar_class ) . '">';
-				dynamic_sidebar( 'sidebar-top-bar' );
-			echo '</div>';
-		}
-		if ( is_active_sidebar( 'sidebar-top-bar' ) ) {
-			$menu_class .= ' col-md-6';
-		} else {
-			$menu_class .= ' col-md-12';
-		}
-
-			echo '<div class="' . esc_attr( $menu_class ) . '">';
-				/**
-				 * Call for the menu
-				 */
-				wp_nav_menu(
-					array(
-						'theme_location' => 'top-bar-menu',
-						'depth'          => 1,
-						'container'      => 'div',
-						'container_id'   => 'top-bar-navigation',
-						'menu_class'     => 'nav top-bar-nav',
-					)
-				);
-			echo '</div>';
-		echo '</div>';
-		echo '</div>';
-		if ( $is_callback !== true ) {
-			echo '</div>';
-		}
-	}
-}
-
-if ( ! function_exists( 'shop_isle_hidden_sidebars' ) ) {
-	/**
-	 * Fix for sections with widgets not appearing anymore after the hide button is selected for each section.
-	 */
-	function shop_isle_hidden_sidebars() {
-
-		echo '<div style="display: none">';
-
-		if ( is_customize_preview() ) {
-			dynamic_sidebar( 'sidebar-top-bar' );
-		}
-
-		echo '</div>';
-	}
-}
-
-add_action( 'shop_isle_footer', 'shop_isle_hidden_sidebars' );

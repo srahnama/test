@@ -18,16 +18,28 @@ if ( ! function_exists( 'shop_isle_footer_widgets' ) ) {
 		<!-- Widgets start -->
 
 	<?php if ( is_active_sidebar( 'sidebar-footer-area-1' ) || is_active_sidebar( 'sidebar-footer-area-2' ) || is_active_sidebar( 'sidebar-footer-area-3' ) || is_active_sidebar( 'sidebar-footer-area-4' ) ) : ?>
+            <div class="container-fluid" style="background: #f7f8fa;">
+                <div class="row">
+                    <?php if ( is_active_sidebar( 'sidebar-footer-area-4' ) ) : ?>
+                        <div class="footer-sidebar-wrap">
+                            <?php dynamic_sidebar( 'sidebar-footer-area-4' ); ?>
+                        </div>
+                    <?php endif; ?>
+                </div>
+            </div>
+		<div style="background: white;"  class="module-footer shop_isle_footer_sidebar">
 
-		<div class="module-small bg-dark shop_isle_footer_sidebar">
-			<div class="container">
+
+
+            <div class="container">
+
 				<div class="row">
 
-					<?php if ( is_active_sidebar( 'sidebar-footer-area-1' ) ) : ?>
-						<div class="col-sm-6 col-md-3 footer-sidebar-wrap">
-							<?php dynamic_sidebar( 'sidebar-footer-area-1' ); ?>
-						</div>
-					<?php endif; ?>
+<!--					--><?php //if ( is_active_sidebar( 'sidebar-footer-area-1' ) ) : ?>
+<!--						<div class="col-sm-6 col-md-3 footer-sidebar-wrap">-->
+<!--							--><?php //dynamic_sidebar( 'sidebar-footer-area-1' ); ?>
+<!--						</div>-->
+<!--					--><?php //endif; ?>
 					<!-- Widgets end -->
 
 					<?php if ( is_active_sidebar( 'sidebar-footer-area-2' ) ) : ?>
@@ -45,11 +57,11 @@ if ( ! function_exists( 'shop_isle_footer_widgets' ) ) {
 					<!-- Widgets end -->
 
 
-					<?php if ( is_active_sidebar( 'sidebar-footer-area-4' ) ) : ?>
-						<div class="col-sm-6 col-md-3 footer-sidebar-wrap">
-							<?php dynamic_sidebar( 'sidebar-footer-area-4' ); ?>
-						</div>
-					<?php endif; ?>
+<!--					--><?php //if ( is_active_sidebar( 'sidebar-footer-area-4' ) ) : ?>
+<!--						<div class="col-sm-6 col-md-3 footer-sidebar-wrap">-->
+<!--							--><?php //dynamic_sidebar( 'sidebar-footer-area-4' ); ?>
+<!--						</div>-->
+<!--					--><?php //endif; ?>
 					<!-- Widgets end -->
 
 				</div><!-- .row -->
@@ -84,14 +96,14 @@ if ( ! function_exists( 'shop_isle_footer_copyright_and_socials' ) ) {
 					<?php
 					/* Copyright */
 					$shop_isle_copyright = apply_filters( 'shop_isle_footer_copyright_filter', get_theme_mod( 'shop_isle_copyright' ) );
-					echo '<div class="col-sm-6">';
+					echo '<div class="col-sm-12">';
 					if ( ! empty( $shop_isle_copyright ) ) :
 						echo '<p class="copyright font-alt">' . $shop_isle_copyright . '</p>';
 						endif;
 
 						$shop_isle_site_info_hide = apply_filters( 'shop_isle_footer_socials_filter', get_theme_mod( 'shop_isle_site_info_hide' ) );
 					if ( isset( $shop_isle_site_info_hide ) && $shop_isle_site_info_hide != 1 ) {
-						echo apply_filters( 'shop_isle_site_info', '<p class="shop-isle-poweredby-box"><a class="shop-isle-poweredby" href="http://themeisle.com/themes/shop-isle/" rel="nofollow">ShopIsle </a>' . __( 'powered by', 'shop-isle' ) . '<a class="shop-isle-poweredby" href="http://wordpress.org/" rel="nofollow"> WordPress</a></p>' );
+						echo apply_filters( 'shop_isle_site_info','<p class="shop-isle-poweredby-box"><a class="shop-isle-poweredby" href="http://themeisle.com/themes/shop-isle/" rel="nofollow">ShopIsle </a>' . __( 'powered by','shop-isle' ) . '<a class="shop-isle-poweredby" href="http://wordpress.org/" rel="nofollow"> WordPress</a></p>' );
 					}
 					echo '</div>';
 
@@ -112,10 +124,10 @@ if ( ! function_exists( 'shop_isle_footer_copyright_and_socials' ) ) {
 							foreach ( $shop_isle_socials_decoded as $shop_isle_social ) :
 
 								$icon_value = ! empty( $shop_isle_social->icon_value ) ? apply_filters( 'shop_isle_translate_single_string', $shop_isle_social->icon_value, 'Footer socials' ) : '';
-								$link       = ! empty( $shop_isle_social->link ) ? apply_filters( 'shop_isle_translate_single_string', $shop_isle_social->link, 'Footer socials' ) : '';
+								$link = ! empty( $shop_isle_social->link ) ? apply_filters( 'shop_isle_translate_single_string', $shop_isle_social->link, 'Footer socials' ) : '';
 
 								if ( ! empty( $icon_value ) && ! empty( $link ) ) {
-									echo '<a href="' . esc_url( $link ) . '" target="_blank"><span class="' . esc_attr( $icon_value ) . '"></span></a>';
+									echo '<a href="' . esc_url( $link ) . '"><span class="' . esc_attr( $icon_value ) . '"></span></a>';
 								}
 									endforeach;
 

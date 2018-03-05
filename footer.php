@@ -11,9 +11,10 @@
 <?php do_action( 'shop_isle_before_footer' ); ?>
 
 	<?php do_action( 'shop_isle_footer' ); ?>
-
+	
 	</div>
 	<!-- Wrapper end -->
+	
 	<!-- Scroll-up -->
 	<div class="scroll-up">
 		<a href="#totop"><i class="arrow_carrot-2up"></i></a>

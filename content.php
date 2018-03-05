@@ -9,7 +9,7 @@
  */
 ?>
 
-<div <?php post_class( 'post' ); ?> id="post-<?php the_ID(); ?>">
+<div <?php post_class( 'post' ); ?> id="post-<?php the_ID(); ?>" itemscope="" itemtype="http://schema.org/BlogPosting">
 
 	<?php
 

@@ -9,7 +9,7 @@
 		/* BANNERS */
 
 
-		$shop_isle_banners_hide  = get_theme_mod( 'shop_isle_banners_hide' );
+		$shop_isle_banners_hide = get_theme_mod( 'shop_isle_banners_hide' );
 		$shop_isle_banners_title = get_theme_mod( 'shop_isle_banners_title' );
 
 if ( isset( $shop_isle_banners_hide ) && $shop_isle_banners_hide != 1 ) :
@@ -18,22 +18,22 @@ if ( isset( $shop_isle_banners_hide ) && $shop_isle_banners_hide != 1 ) :
 			echo '<section class="module-small home-banners shop_isle_hidden_if_not_customizer">';
 		endif;
 
-		if ( ( isset( $shop_isle_banners_hide ) && $shop_isle_banners_hide != 1 ) || is_customize_preview() ) :
+		if ( ( isset( $shop_isle_banners_hide ) && $shop_isle_banners_hide != 1) || is_customize_preview() ) :
 
 			$shop_isle_banners = get_theme_mod(
 				'shop_isle_banners', json_encode(
 					array(
 						array(
 							'image_url' => get_template_directory_uri() . '/assets/images/banner1.jpg',
-							'link'      => '#',
+							'link' => '#',
 						),
 						array(
 							'image_url' => get_template_directory_uri() . '/assets/images/banner2.jpg',
-							'link'      => '#',
+							'link' => '#',
 						),
 						array(
 							'image_url' => get_template_directory_uri() . '/assets/images/banner3.jpg',
-							'link'      => '#',
+							'link' => '#',
 						),
 					)
 				)
@@ -67,12 +67,12 @@ if ( isset( $shop_isle_banners_hide ) && $shop_isle_banners_hide != 1 ) :
 					foreach ( $shop_isle_banners_decoded as $shop_isle_banner ) :
 
 						$image_url = ! empty( $shop_isle_banner->image_url ) ? apply_filters( 'shop_isle_translate_single_string', $shop_isle_banner->image_url, 'Banners section' ) : '';
-						$link      = ! empty( $shop_isle_banner->link ) ? apply_filters( 'shop_isle_translate_single_string', $shop_isle_banner->link, 'Banners section' ) : '';
+						$link = ! empty( $shop_isle_banner->link ) ? apply_filters( 'shop_isle_translate_single_string', $shop_isle_banner->link, 'Banners section' ) : '';
 
 						if ( ! empty( $image_url ) ) {
 
 							$shop_isle_alt_image = '';
-							$image_id            = function_exists( 'attachment_url_to_postid' ) ? attachment_url_to_postid( preg_replace( '/-\d{1,4}x\d{1,4}/i', '', $image_url ) ) : '';
+							$image_id = function_exists( 'attachment_url_to_postid' ) ? attachment_url_to_postid( $image_url ) : '';
 							if ( ! empty( $image_id ) && $image_id !== 0 ) {
 								$shop_isle_alt_image = 'alt="' . esc_attr( get_post_meta( $image_id, '_wp_attachment_image_alt', true ) ) . '"';
 							}

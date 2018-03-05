@@ -34,19 +34,19 @@ if ( defined( 'WCCM_VERISON' ) ) {
 
 }
 
-/******  Banners Section */
+/******  Banners Section *******/
 $banners_section = get_template_directory() . '/inc/sections/shop_isle_banners_section.php';
 require_once( $banners_section );
 
-/******* Products Section */
+/******* Products Section *********/
 $latest_products = get_template_directory() . '/inc/sections/shop_isle_products_section.php';
 require_once( $latest_products );
 
-/******* Video Section */
+/******* Video Section *********/
 $video = get_template_directory() . '/inc/sections/shop_isle_video_section.php';
 require_once( $video );
 
-/******* Products Slider Section */
+/******* Products Slider Section *********/
 $products_slider = get_template_directory() . '/inc/sections/shop_isle_products_slider_section.php';
 require_once( $products_slider );
 

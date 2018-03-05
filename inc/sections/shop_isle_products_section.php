@@ -41,7 +41,7 @@ if ( taxonomy_exists( 'product_visibility' ) ) {
 	$tax_query_item = array(
 		array(
 			'taxonomy' => 'product_visibility',
-			'field'    => 'name',
+			'field'    => 'term_id',
 			'terms'    => 'exclude-from-catalog',
 			'operator' => 'NOT IN',
 

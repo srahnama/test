@@ -33,10 +33,10 @@ function shop_isle_contact_page_customize_register( $wp_customize ) {
 			'label'           => __( 'Contact form shortcode', 'shop-isle' ),
 			'description'     => sprintf(
 				/* translators: 1: Link to Pirate Forms Plugin. */
-				__( 'Create a form, copy the shortcode generated and paste it here. We recommend %1$s but you can use any plugin you like.', 'shop-isle' ),
+				 __( 'Create a form, copy the shortcode generated and paste it here. We recommend %1$s but you can use any plugin you like.', 'shop-isle' ),
 				sprintf(
 					/* translators: 1: 'Simple Contact Form Plugin - PirateForms' */
-					'<a href="https://wordpress.org/plugins/pirate-forms/" target="_blank">%s</a>',
+					 '<a href="https://wordpress.org/plugins/pirate-forms/" target="_blank">%s</a>',
 					'Simple Contact Form Plugin - PirateForms'
 				)
 			),

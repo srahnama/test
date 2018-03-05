@@ -41,7 +41,7 @@ add_action( 'customize_register', 'shop_isle_frontpage_manager_customize_registe
  * to display blog posts on their homepage instead of a static page.
  */
 function shop_isle_filter_front_page_template( $template ) {
-	$wporg_flag                     = get_option( 'shop_isle_wporg_flag' );
+	$wporg_flag = get_option( 'shop_isle_wporg_flag' );
 	$shop_isle_keep_old_fp_template = get_theme_mod( 'shop_isle_keep_old_fp_template' );
 	if ( ! $shop_isle_keep_old_fp_template && ( isset( $wporg_flag ) && ( $wporg_flag === 'true' ) ) ) {
 		return is_home() ? '' : $template;

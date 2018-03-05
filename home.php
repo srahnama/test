@@ -14,20 +14,12 @@ get_header(); ?>
 
 	<!-- Header section start -->
 <?php
-
-$page_for_posts_id = get_option( 'page_for_posts' );
-if ( ! empty( $page_for_posts_id ) ) {
-	$thumb_tmp = get_the_post_thumbnail_url( $page_for_posts_id );
-}
-
 $shop_isle_header_image = get_header_image();
-if ( ! empty( $thumb_tmp ) ) {
-	echo '<section class="page-header-module module bg-dark" data-background="' . esc_url( $thumb_tmp ) . '">';
-} elseif ( ! empty( $shop_isle_header_image ) ) {
+if ( ! empty( $shop_isle_header_image ) ) :
 	echo '<section class="page-header-module module bg-dark" data-background="' . esc_url( $shop_isle_header_image ) . '">';
-} else {
+else :
 	echo '<section class="module bg-dark">';
-}
+endif;
 ?>
 		<div class="container">
 
@@ -36,7 +28,7 @@ if ( ! empty( $thumb_tmp ) ) {
 				<div class="col-sm-10 col-sm-offset-1">
 
 					<?php
-					$shop_isle_blog_header_title = get_theme_mod( 'shop_isle_blog_header_title', __( 'Blog', 'shop-isle' ) );
+					$shop_isle_blog_header_title = get_theme_mod( 'shop_isle_blog_header_title', __( 'Blog','shop-isle' ) );
 					if ( ! empty( $shop_isle_blog_header_title ) ) {
 						echo '<h1 class="module-title font-alt shop-isle-blog-header-title">';
 						echo $shop_isle_blog_header_title;
@@ -70,13 +62,13 @@ echo '</section><!-- .module -->';
 <?php
 $shop_isle_posts_per_page = get_option( 'posts_per_page' ); /* number of latest posts to show */
 
-if ( ! empty( $shop_isle_posts_per_page ) && ( $shop_isle_posts_per_page > 0 ) ) :
+if ( ! empty( $shop_isle_posts_per_page ) && ($shop_isle_posts_per_page > 0) ) :
 
 	$shop_isle_query = new WP_Query(
 		array(
-			'post_type'      => 'post',
+			'post_type' => 'post',
 			'posts_per_page' => $shop_isle_posts_per_page,
-			'paged'          => ( get_query_var( 'paged' ) ? get_query_var( 'paged' ) : 1 ),
+			'paged' => ( get_query_var( 'paged' ) ? get_query_var( 'paged' ) : 1 ),
 		)
 	);
 
@@ -98,7 +90,7 @@ if ( ! empty( $shop_isle_posts_per_page ) && ( $shop_isle_posts_per_page > 0 ) )
 							$shop_isle_query->the_post();
 
 							?>
-							<div id="post-<?php the_ID(); ?>" <?php post_class( 'post' ); ?>>
+							<div id="post-<?php the_ID(); ?>" <?php post_class( 'post' ); ?> itemscope="" itemtype="http://schema.org/BlogPosting">
 
 								<?php
 								if ( has_post_thumbnail() ) {
@@ -111,11 +103,7 @@ if ( ! empty( $shop_isle_posts_per_page ) && ( $shop_isle_posts_per_page > 0 ) )
 								?>
 
 								<div class="post-header font-alt">
-									<h2 class="post-title entry-title"><a href="
-									<?php
-										echo esc_url( get_permalink() );
-										?>
-										"><?php the_title(); ?></a></h2>
+									<h2 class="post-title"><a href="<?php echo esc_url( get_permalink() ); ?>"><?php the_title(); ?></a></h2>
 									<div class="post-meta">
 										<?php
 										shop_isle_posted_on();
@@ -124,7 +112,7 @@ if ( ! empty( $shop_isle_posts_per_page ) && ( $shop_isle_posts_per_page > 0 ) )
 									</div>
 								</div>
 
-								<div class="post-entry entry-content">
+								<div class="post-entry">
 									<?php
 									$shop_isleismore = strpos( $post->post_content, '<!--more-->' );
 									if ( $shop_isleismore ) :
@@ -135,13 +123,9 @@ if ( ! empty( $shop_isle_posts_per_page ) && ( $shop_isle_posts_per_page > 0 ) )
 									?>
 								</div>
 
-								<?php
-								if ( ! $shop_isleismore ) {
-									echo '<div class="post-more">';
-										echo '<a href="' . esc_url( get_permalink() ) . '" class="more-link">' . esc_html__( 'Read more', 'shop-isle' ) . '</a>';
-									echo '</div>';
-								}
-								?>
+								<div class="post-more">
+									<a href="<?php echo esc_url( get_permalink() ); ?>" class="more-link"><?php esc_html_e( 'Read more','shop-isle' ); ?></a>
+								</div>
 
 							</div>
 							<?php

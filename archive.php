@@ -59,7 +59,7 @@
 						the_post();
 
 						?>
-						<div id="post-<?php the_ID(); ?>" <?php post_class( 'post' ); ?>>
+						<div id="post-<?php the_ID(); ?>" <?php post_class( 'post' ); ?> itemscope="" itemtype="http://schema.org/BlogPosting">
 
 							<?php
 							if ( has_post_thumbnail() ) {
@@ -72,7 +72,7 @@
 							?>
 
 							<div class="post-header font-alt">
-								<h2 class="post-title entry-title"><a href="<?php echo esc_url( get_permalink() ); ?>"><?php the_title(); ?></a></h2>
+								<h2 class="post-title"><a href="<?php echo esc_url( get_permalink() ); ?>"><?php the_title(); ?></a></h2>
 								<div class="post-meta">
 									<?php
 									shop_isle_posted_on();
@@ -81,7 +81,7 @@
 									</div>
 									</div>
 
-									<div class="post-entry entry-content">
+									<div class="post-entry">
 									<?php
 									$shop_isleismore = strpos( $post->post_content, '<!--more-->' );
 									if ( $shop_isleismore ) :
@@ -92,13 +92,9 @@
 										?>
 									</div>
 
-									<?php
-									if ( ! $shop_isleismore ) {
-										echo '<div class="post-more">';
-										echo '<a href="' . esc_url( get_permalink() ) . '" class="more-link">' . esc_html__( 'Read more', 'shop-isle' ) . '</a>';
-										echo '</div>';
-									}
-									?>
+									<div class="post-more">
+										<a href="<?php echo esc_url( get_permalink() ); ?>" class="more-link"><?php esc_html_e( 'Read more','shop-isle' ); ?></a>
+									</div>
 
 								</div>
 								<?php

@@ -15,7 +15,7 @@ if ( ! function_exists( 'shop_isle_post_header' ) ) {
 	function shop_isle_post_header() {
 	?>
 		<div class="post-header font-alt">
-			<h2 class="post-title entry-title">
+			<h2 class="post-title">
 				<a href="<?php echo esc_url( get_permalink() ); ?>" rel="bookmark"><?php the_title(); ?></a>
 			</h2>
 		</div>
@@ -32,7 +32,7 @@ if ( ! function_exists( 'shop_isle_post_content' ) ) {
 	 */
 	function shop_isle_post_content() {
 		?>
-		<div class="post-entry entry-content">
+		<div class="post-entry" itemprop="articleBody">
 		<?php
 		the_content(
 			sprintf(
@@ -124,10 +124,10 @@ if ( ! function_exists( 'shop_isle_posted_on' ) ) {
 		$shop_isle_post_author = get_the_author();
 
 		if ( ! empty( $shop_isle_post_author ) ) :
-			echo __( 'By ', 'shop-isle' ) . '<a href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '" class="author vcard"><span class="fn">' . esc_html( get_the_author() ) . '</span></a> | ';
+			echo __( 'By ','shop-isle' ) . '<a href="' . esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ) . '">' . esc_html( get_the_author() ) . '</a> | ';
 		endif;
 
-		$time_string = '<time class="entry-date published updated date" datetime="%1$s">%2$s</time>';
+		$time_string = '<time class="entry-date published updated" datetime="%1$s" itemprop="datePublished">%2$s</time>';
 
 		$time_string = sprintf(
 			$time_string,
@@ -146,23 +146,23 @@ if ( ! function_exists( 'shop_isle_posted_on' ) ) {
 		if ( $shop_isle_num_comments == 0 ) {
 			$shop_isle_comments = __( 'No Comments', 'shop-isle' );
 		} elseif ( $shop_isle_num_comments > 1 ) {
-			$shop_isle_comments = $shop_isle_num_comments . __( ' Comments', 'shop-isle' );
+			$shop_isle_comments = $shop_isle_num_comments . __( ' Comments','shop-isle' );
 		} else {
-			$shop_isle_comments = __( '1 Comment', 'shop-isle' );
+			$shop_isle_comments = __( '1 Comment','shop-isle' );
 		}
 		if ( ! empty( $shop_isle_comments ) ) :
 			echo '<a href="' . esc_url( get_comments_link() ) . '">' . esc_html( $shop_isle_comments ) . '</a> | ';
 		endif;
 
 		$shop_isle_categories = get_the_category();
-		$separator            = ', ';
-		$shop_isleoutput      = '';
+		$separator = ', ';
+		$shop_isleoutput = '';
 		if ( $shop_isle_categories ) {
 			foreach ( $shop_isle_categories as $shop_isle_category ) {
 				$shop_isleoutput .= '<a href="' . esc_url( get_category_link( $shop_isle_category->term_id ) ) . '" title="' . esc_attr(
 					sprintf(
 						/* translators: s: category name */
-						__( 'View all posts in %s', 'shop-isle' ), $shop_isle_category->name
+						 __( 'View all posts in %s', 'shop-isle' ), $shop_isle_category->name
 					)
 				) . '">' . esc_html( $shop_isle_category->cat_name ) . '</a>' . $separator;
 			}
